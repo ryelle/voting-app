@@ -1,0 +1,19 @@
+<div class="form">
+  <h1>Sign up</h1>
+
+  <%= form_with model: @user do |form| %>
+    <div class="form-field">
+      <%= form.label :email %>
+      <%= form.text_field :email, type: "email" %>
+    </div>
+    <div class="form-field">
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+    </div>
+    <div class="form-field">
+      <%= form.label :zip %>
+      <%= form.text_field :zip %>
+    </div>
+    <%= form.submit "Create an Account", class: "button" %>
+  <% end %>
+</div>

@@ -11,6 +11,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="site-header">
+      <h1><%= link_to "Vote.Website", '/' %></h1>
+      <nav class="main-navigation">
+      <% if current_user %>
+        <ul>
+          <li><span><%= current_user.email %></span></li>
+          <li><%= button_to "Log out", logout_path, method: "delete", class: 'btn btn-small' %></li>
+        </ul>
+      <% else %>
+        <ul>
+          <li><%= link_to "Login", 'login' %></li>
+          <li><%= link_to "Signup", 'signup' %></li>
+        </ul>
+      <% end %>
+      </nav>
+    </header>
+
+    <div class="container">
+     <%= yield %>
+    </div>
   </body>
 </html>
