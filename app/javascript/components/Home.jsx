@@ -99,9 +99,12 @@ const Home = ({ candidates, user, votedFor = 0 }) => {
       <div style={{ textAlign: "center" }}>
         <p>Thank you for voting!</p>
         <p style={{ marginBlockStart: "var(--spacing--30)" }}>
-          {/* @todo Make a log out button that works 😅 */}
-          <a href="#" className="button" style={{ display: "inline-block" }}>
-            Sign in as a different user?
+          <a
+            href="/results"
+            className="button"
+            style={{ display: "inline-block" }}
+          >
+            View all results
           </a>
         </p>
       </div>
