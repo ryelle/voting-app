@@ -6,11 +6,14 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   get 'signup', to: 'users#new' 
-  resources :users
+  resources :users, only: [:create]
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy' 
+
+  resources :votes, only: [:index, :create]
+  resources :candidates, only: [:index, :create]
 
   # Defines the root path route ("/")
   root "home#index"
