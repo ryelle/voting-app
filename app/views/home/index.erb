@@ -1,1 +1,5 @@
-<%= react_component "Home", { message: @message } %>
+<%= react_component "Home", { 
+  candidates: @candidates.as_json, 
+  user: current_user, 
+  votedFor: @voted_candidate_id 
+} %>
