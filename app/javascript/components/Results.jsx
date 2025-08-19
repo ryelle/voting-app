@@ -28,7 +28,7 @@ const Results = ({ candidates, votes }) => {
         <tbody>
           {voteList.map(([candId, count]) => (
             <tr key={candId}>
-              <td>{getCandidateName(candId)}</td>
+              <td scope="row">{getCandidateName(candId)}</td>
               <td>{count}</td>
             </tr>
           ))}
