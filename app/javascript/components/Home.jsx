@@ -78,7 +78,7 @@ const Home = ({ candidates, user, votedFor = 0 }) => {
       <div style={{ textAlign: "center" }}>
         <p>You must be logged in to vote.</p>
         <p className="row" style={{ marginBlockStart: "var(--spacing--30)" }}>
-          <hr aria-hidden />
+          <span className="separator" aria-hidden />
           <a
             href="/login"
             className="button"
@@ -86,7 +86,7 @@ const Home = ({ candidates, user, votedFor = 0 }) => {
           >
             Log in
           </a>
-          <hr aria-hidden />
+          <span className="separator" aria-hidden />
           <a
             href="/signup"
             className="button"
@@ -94,7 +94,7 @@ const Home = ({ candidates, user, votedFor = 0 }) => {
           >
             Sign up
           </a>
-          <hr aria-hidden />
+          <span className="separator" aria-hidden />
         </p>
       </div>
     );

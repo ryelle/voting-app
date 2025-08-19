@@ -243,6 +243,12 @@ hr {
   }
 }
 
+.separator {
+  height: 1px;
+  background: var(--color--slate-30);
+  align-self: center;
+}
+
 .table {
   margin-inline: auto;
   padding: var(--spacing--40);
