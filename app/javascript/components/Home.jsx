@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "./button";
 import InputControl from "./input-control";
 import RadioInputControl from "./input-control/radio";
@@ -30,6 +30,12 @@ const Home = ({ candidates, user, votedFor = 0 }) => {
           },
           body: JSON.stringify({ candidate: { name: newCandidate } }),
         });
+        // Failed to insert new candidate.
+        if (response.status !== 201) {
+          // @todo Actual error handling.
+          setIsSubmitting(false);
+          return;
+        }
         const data = await response.json();
         voteFor = data.id;
       } catch (error) {
@@ -132,17 +138,19 @@ const Home = ({ candidates, user, votedFor = 0 }) => {
               }}
             />
           ))}
-          <InputControl
-            label="Add a new candidate"
-            value={newCandidate}
-            placeholder="Someone else"
-            onClick={() => {
-              if (selected) {
-                setSelected(0);
-              }
-            }}
-            onChange={(value) => setNewCandidate(value)}
-          />
+          {candidates.length < 10 && (
+            <InputControl
+              label="Add a new candidate"
+              value={newCandidate}
+              placeholder="Someone else"
+              onClick={() => {
+                if (selected) {
+                  setSelected(0);
+                }
+              }}
+              onChange={(value) => setNewCandidate(value)}
+            />
+          )}
         </fieldset>
         <Button disabled={isSubmitting}>Vote</Button>
       </form>
