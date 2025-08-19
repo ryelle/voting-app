@@ -11,14 +11,17 @@ const Home = ({ candidates, user, votedFor = 0 }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // Don't do anything if the form is not filled in yet.
     if (!selected && !newCandidate) {
       return;
     }
+    // Indicate to the user that something is happening.
     setIsSubmitting(true);
+    // If a candidate is created, it will overwrite this
+    // (which should be 0 in that case).
     let voteFor = selected;
 
-    // If there is a new candidate, first create it. Then, use the newly
-    // created ID as if it was the selected option.
+    // If there is a new candidate, create it and save the ID to voteFor.
     if (newCandidate) {
       try {
         const response = await fetch("/candidates", {
