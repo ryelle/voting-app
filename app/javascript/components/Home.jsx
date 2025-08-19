@@ -60,8 +60,7 @@ const Home = ({ candidates, user, votedFor = 0 }) => {
         },
         body: JSON.stringify({ vote: { candidate_id: voteFor } }),
       });
-      const data = await response.json();
-      if (data.id) {
+      if (response.status === 201) {
         setHasSubmitted(true);
       }
     } catch (error) {
